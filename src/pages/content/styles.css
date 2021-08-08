@@ -1,0 +1,8 @@
+.scroll{
+    display: flex;
+    /*flex-wrap: nowrap;                   this is the default, can be removed  */
+    overflow-x: auto;
+    /*justify-content: space-evenly;       removed  */
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+}
