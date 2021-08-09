@@ -1,14 +1,17 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {limitItemHandler, startGetCategoryItems} from "../../redux/categories/actions";
-import styled from 'styled-components'
-import Card from "../../components/card/Card";
+import {ContentContainer} from './content.styled'
+import Card from "../../components/Card/Card";
+import LoadMoreBtn from "../../components/LoadMoreBtn/LoadMoreBtn";
+
 
 const Content = ({id})=> {
     const dispatch = useDispatch();
     const limit = useSelector((state) => {
-        return state.limit;
+        return state.categories.limit;
     });
+    const openMenu = useSelector((state)=> state.menu.status)
 
     useEffect(() => {
 
@@ -20,23 +23,21 @@ const Content = ({id})=> {
         dispatch(startGetCategoryItems(id,limit))
     };
     const catItems = useSelector((state) => {
-        return state.items;
+        return state.categories.items;
     });
     const loadMoreHandler = () => {
         dispatch(limitItemHandler(limit+10))
     };
 
     return (
-        <div>
-        <div style={{display:'flex',height:'100%',flexWrap: 'wrap',justifyContent:'center',flex:3,margin:'16'}}>
+        <>
+        <ContentContainer open={openMenu}>
             {catItems && catItems.map((item, index) => (
               <Card imgUrl={item.url} key={index} title='hi'/>
             ))}
-        </div>
-            <button onClick={loadMoreHandler} style={{margin:16,padding:16}}>load more!</button>
-        </div>
-
-
+        </ContentContainer>
+            <LoadMoreBtn onClick={loadMoreHandler}>load more!</LoadMoreBtn>
+        </>
     )
 }
 export default Content;

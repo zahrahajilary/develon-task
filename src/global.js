@@ -21,9 +21,9 @@ export const GlobalStyles = createGlobalStyle`
   }
   img {
     border-radius: 5px;
-    height: 15rem;
-    width: 10rem;
-    border:1px solid white
+    height: 18rem;
+    width: 18rem;
+    border:1px solid white;
     object-fit: cover;
   }
   div {

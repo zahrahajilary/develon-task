@@ -3,7 +3,6 @@ import {
     REQUEST_CATEGORY_ITEM_SUCCESS,
     REQUEST_CATEGORY_ITEM_START, SELECTED_CATEGORY, LIMIT_HANDLER
 } from './constants'
-import {act} from "@testing-library/react";
 
 const initial_state = {
     isFetching:false,

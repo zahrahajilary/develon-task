@@ -1,13 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch} from "react-redux";
-import {useHistory} from "react-router";
 import {apiCall} from "../../services/api";
-import MenuItem from "./MenuItem";
+import MenuItem from "../MenuItem/MenuItem";
 import {limitItemHandler, selectedCategory} from "../../redux/categories/actions";
+import {MenuContainer} from "./Menu.styled";
+import {menuHandler} from "../../redux/menu/actions";
+
 
 const Menu  = () => {
     const dispatch = useDispatch();
-    const history = useHistory();
     const [categories,setCategories] = useState([]);
 
     useEffect(()=>{
@@ -27,26 +28,20 @@ const Menu  = () => {
     const selectedCategoryHandler =(id)=> {
        dispatch((selectedCategory(id)));
        dispatch((limitItemHandler(10)));
-       history.push(`/${id}`);
+    };
+
+    const closeMenuHandler = ()=> {
+        dispatch(menuHandler(false))
     };
 
     return(
 
-        <div style={{display:'flex',
-            alignItems:'center',
-            width:'240px'
-            ,height:'100%',
-            backgroundColor:'white',
-            position:'fixed',
-            flexDirection:'column',
-            flex:1
-        }}
-
-        >
+        <MenuContainer>
+            <div style={{color:'black'}} onClick={closeMenuHandler}>X</div>
             {categories && categories.map((item,index)=>(
                 <MenuItem item={item} key={index} clicked={()=>selectedCategoryHandler(item.id)}/>
             ))}
-        </div>
+        </MenuContainer>
 
     )
 };
