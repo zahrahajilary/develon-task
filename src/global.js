@@ -20,8 +20,8 @@ export const GlobalStyles = createGlobalStyle`
   }
   img {
     border-radius: 5px;
-    height: 18rem;
-    width: 18rem;
+    height: 15rem;
+    width: 14rem;
     border:1px solid white;
     object-fit: cover;
   }

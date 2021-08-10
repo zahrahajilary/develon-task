@@ -6,8 +6,8 @@ export const CardContainer = styled.div`
   background-color: whitesmoke;
   border-radius: 16px;
   border: 1px solid lightgray;
-  width: 300px;
-  height: 300px;
+  width: 16rem;
+  height: 16rem ;
   justify-content: center;
 `;
 
