@@ -9,4 +9,6 @@ export const MenuContainer = styled.div`
   position: fixed;
   flex-direction: column;
   flex: 1 1 0%;
+  z-index:99;
+   box-shadow: 10px 0 5px -2px #888;
 `;

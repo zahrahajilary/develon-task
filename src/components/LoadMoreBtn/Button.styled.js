@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ButtonContainer = styled.button`
+export const ButtonContainer = styled.div`
   font-family: "Ubuntu", sans-serif;
   position: relative;
   font-weight: 400;
@@ -11,7 +11,7 @@ export const ButtonContainer = styled.button`
   border-radius: 4px;
   width: 240px;
   letter-spacing: 1px;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -21,4 +21,12 @@ export const ButtonContainer = styled.button`
   box-shadow: 0 12px 35px 0 rgba(16, 39, 112, 0.25);
   outline: 0;
   text-transform: capitalize;
-`;
+  align-self: center;
+  justify-content:center;
+  text-align:center;
+  border:1px solid white;
+  margin : 16px auto
+  
+  `
+
+;

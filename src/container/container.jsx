@@ -6,7 +6,7 @@ import Menu from "../components/Menu/Menu";
 import { menuHandler } from "../store/menu/actions";
 import BurgerMenu from "../components/BurgerMenu/BurgerMenu";
 import Text from "../components/Text/Text";
-import {ContentContainer,PageContainer} from "./PageContainer.styled";
+import { PageContainer, PageContentContainer } from "./PageContainer.styled";
 
 const Container = () => {
   const { categoryId } = useParams();
@@ -20,13 +20,13 @@ const Container = () => {
   return (
     <PageContainer>
       {openMenu === false ? <BurgerMenu openHandler={openMenuHandler} /> : <Menu />}
-      <ContentContainer open={openMenu}>
+      <PageContentContainer open={openMenu}>
         {categoryId ? (
           <Content id={categoryId} />
         ) : (
-        <Text text={'Hi There Please Select A Category!'}/>
+          <Text text={"Hi There Please Select A Category!"} />
         )}
-      </ContentContainer>
+      </PageContentContainer>
     </PageContainer>
   );
 };

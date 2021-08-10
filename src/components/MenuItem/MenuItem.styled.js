@@ -7,10 +7,11 @@ export const MenuItemContainer = styled(Link)`
   height: 40px;
   justify-content: center;
   align-item: center;
+  margin-left:20px;
   ${({ theme }) => theme.primaryLight};
   font-weight: bold;
   &:hover {
-    width: 100%;
+    width: 90%;
     background-color: #ecebf8;
   }
 `;

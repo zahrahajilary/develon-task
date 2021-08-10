@@ -1,7 +1,7 @@
-import React from 'react';
-import {TextContainer} from "./Text.styled.js";
+import React from "react";
+import { TextContainer } from "./Text.styled.js";
 
-const Text = ({text})=>{
-   return(<TextContainer>{text}</TextContainer>);
+const Text = ({ text }) => {
+  return <TextContainer>{text}</TextContainer>;
 };
 export default Text;

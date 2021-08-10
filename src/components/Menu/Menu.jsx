@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { apiCall } from "../../utils";
 import MenuItem from "../MenuItem/MenuItem";
 import { limitItemHandler, selectedCategory } from "../../store/categories/actions";
+import {getCategoryList} from "../../services/categories/categories";
 import { MenuContainer } from "./Menu.styled";
+import {CloseContainer} from "./Close.styled";
 import { menuHandler } from "../../store/menu/actions";
+import {CloseIcon} from "../Svg";
+
 
 const Menu = () => {
   const dispatch = useDispatch();
@@ -16,7 +19,7 @@ const Menu = () => {
 
   const getCategories = async () => {
     try {
-      const res = await apiCall("categories");
+      const res = await getCategoryList();
       setCategories(res);
     } catch (e) {
       return e;
@@ -34,9 +37,9 @@ const Menu = () => {
 
   return (
     <MenuContainer>
-      <div style={{ color: "black" }} onClick={closeMenuHandler}>
-        X
-      </div>
+      <CloseContainer onClick={closeMenuHandler}>
+        {CloseIcon}
+      </CloseContainer>
       {categories &&
         categories.map((item, index) => (
           <MenuItem

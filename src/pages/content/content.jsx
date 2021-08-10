@@ -4,16 +4,15 @@ import {
   limitItemHandler,
   startGetCategoryItems,
 } from "../../store/categories/actions";
-import {BtnContainer, PageContentContainer} from "./content.styled";
 import Card from "../../components/Card/Card";
 import LoadMoreBtn from "../../components/LoadMoreBtn/LoadMoreBtn";
+import { ContentContainer } from "./content.styled";
 
 const Content = ({ id }) => {
   const dispatch = useDispatch();
   const limit = useSelector((state) => {
     return state.categories.limit;
   });
-
 
   useEffect(() => {
     if (id) {
@@ -32,18 +31,12 @@ const Content = ({ id }) => {
 
   return (
       <>
-      <PageContentContainer>
-        {catItems &&
-          catItems.map((item, index) => (
-            <Card imgUrl={item.url} key={index} title="hi" />
-          ))}
-
-        </PageContentContainer>
-        <BtnContainer>
+    <ContentContainer>
+      {catItems &&
+        catItems.map((item, index) => <Card imgUrl={item.url} key={index} />)}
+    </ContentContainer>
         <LoadMoreBtn onClick={loadMoreHandler}>load more!</LoadMoreBtn>
-        </BtnContainer>
         </>
-
   );
 };
 export default Content;
